@@ -11,9 +11,9 @@ class Premailer
 
       STRATEGIES = [
         CSSLoaders::HTTPLoader,
-        CSSLoaders::CacheLoader,
-        CSSLoaders::AssetPipelineLoader,
-        CSSLoaders::FileSystemLoader
+        # CSSLoaders::CacheLoader,
+        # CSSLoaders::AssetPipelineLoader,
+        # CSSLoaders::FileSystemLoader
       ]
 
       # Returns all linked CSS files concatenated as string.
