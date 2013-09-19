@@ -10,6 +10,7 @@ class Premailer
       attr :cache
 
       STRATEGIES = [
+        CSSLoaders::HTTPLoader,
         CSSLoaders::CacheLoader,
         CSSLoaders::AssetPipelineLoader,
         CSSLoaders::FileSystemLoader
