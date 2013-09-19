@@ -1,6 +1,27 @@
 class Premailer
   module Rails
     module CSSLoaders
+      
+      module HTTPLoader
+        extend self
+        
+        def load(path)
+          include HTTParty
+          uri = URI.parse(path)
+          if exitsts?(uri)
+            HTTParty.get(uri.to_s).body
+          end
+        end
+        
+        private
+        
+        def exitsts?(uri)
+    			request = Net::HTTP.new(uri.host, uri.port)
+    			res = request.request_head(uri.to_s)
+    			return ['200','302'].include? res.code
+        end
+      end
+      
       # Loads the CSS from cache when not in development env.
       module CacheLoader
         extend self
